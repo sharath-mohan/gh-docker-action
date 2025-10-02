@@ -9,11 +9,19 @@ jobs:
     environment: testing
     env:
       PORT: ${{ secrets.PORT }}
-      MONGO_DB_USER_NAME: ${{ secrets.MONGO_DB_USER_NAME }}
-      MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
+      #   MONGO_DB_USER_NAME: ${{ secrets.MONGO_DB_USER_NAME }}
+      #   MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
+      MONGO_DB_USER_NAME: root
+      MONGO_DB_PASSWORD: example
     runs-on: ubuntu-latest
     container:
       image: node:22-alpine
+    services:
+      mongodb:
+        image: mongo
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
     steps:
       - name: Clone repo
         uses: actions/checkout@v5
