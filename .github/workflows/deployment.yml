@@ -6,6 +6,11 @@ on:
       - main
 jobs:
   test:
+    environment: testing
+    env:
+      PORT: ${{ secrets.PORT }}
+      MONGO_DB_USER_NAME: ${{ secrets.MONGO_DB_USER_NAME }}
+      MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
     runs-on: ubuntu-latest
     steps:
       - name: Clone repo
