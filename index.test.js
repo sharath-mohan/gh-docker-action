@@ -3,7 +3,7 @@ const { app } = require("./index"); // Your Express app instance
 let server;
 
 beforeAll(() => {
-  server = app.listen(0, () => {
+  server = app.listen(3000, () => {
     console.log("running");
   }); // start server on test port
 });

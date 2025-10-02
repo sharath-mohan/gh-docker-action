@@ -25,7 +25,4 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`app running successfully on ${PORT}`);
-});
 module.exports = { app };
