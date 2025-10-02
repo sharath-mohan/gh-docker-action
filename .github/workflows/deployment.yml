@@ -12,6 +12,8 @@ jobs:
       MONGO_DB_USER_NAME: ${{ secrets.MONGO_DB_USER_NAME }}
       MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
     runs-on: ubuntu-latest
+    container:
+      image: node:22-alpine
     steps:
       - name: Clone repo
         uses: actions/checkout@v5
