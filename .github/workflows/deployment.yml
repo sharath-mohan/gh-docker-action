@@ -13,6 +13,8 @@ jobs:
       #   MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
       MONGO_DB_USER_NAME: root
       MONGO_DB_PASSWORD: example
+      MONGO_CLUSTER: mongo
+      MONGO_PROTOCOL: mongo
     runs-on: ubuntu-latest
     container:
       image: node:22-alpine

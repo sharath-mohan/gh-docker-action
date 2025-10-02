@@ -1,13 +1,14 @@
 const express = require("express");
 require("dotenv/config");
 const { MongoClient } = require("mongodb");
-// import { MongoClient, ServerApiVersion } from "mongodb";
 const app = express();
 const PORT = process.env.PORT || 4000;
 const MONGO_DB_USER_NAME = process.env.MONGO_DB_USER_NAME || "";
 const MONGO_DB_PASSWORD = process.env.MONGO_DB_PASSWORD || "";
+const MONGO_PROTOCOL = process.env.MONGO_PROTOCOL || "";
+const MONGO_CLUSTER = process.env.MONGO_CLUSTER || "";
 
-const MONGO_DB_URL = `mongodb+srv://${MONGO_DB_USER_NAME}:${MONGO_DB_PASSWORD}@cluster0.vhxptw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const MONGO_DB_URL = `${MONGO_PROTOCOL}://${MONGO_DB_USER_NAME}:${MONGO_DB_PASSWORD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(MONGO_DB_URL);
 // async function run() {
