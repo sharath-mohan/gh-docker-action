@@ -1,6 +1,21 @@
 const request = require("supertest");
 const { app } = require("./index"); // Your Express app instance
+let server;
 
+beforeAll(() => {
+  server = app.listen(0, () => {
+    console.log("running");
+  }); // start server on test port
+});
+afterAll(async () => {
+  // 👇 cleanup
+  await new Promise((resolve, reject) => {
+    server.close((err) => {
+      if (err) return reject(err);
+      resolve();
+    });
+  });
+});
 describe("GET /", () => {
   const mockData = {
     movie: {
@@ -40,6 +55,7 @@ describe("GET /", () => {
   };
   it("should return details of Back to the Future", async () => {
     const res = await request(app).get("/");
+
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual(mockData);
   });
