@@ -14,7 +14,7 @@ jobs:
       MONGO_DB_USER_NAME: root
       MONGO_DB_PASSWORD: example
       MONGO_CLUSTER: mongo
-      MONGO_PROTOCOL: mongo
+      MONGO_PROTOCOL: mongodb
     runs-on: ubuntu-latest
     container:
       image: node:22-alpine
